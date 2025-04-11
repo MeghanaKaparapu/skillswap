@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Skill Matches</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Skill Matches</h1>
+        {% if matches %}
+            {% for match in matches %}
+                <div class="match-box">
+                    <h3>✅ Match Found!</h3>
+                    <p><strong>{{ match.user1 }}</strong> offers <strong>{{ match.user1_offers }}</strong> and wants <strong>{{ match.user1_wants }}</strong></p>
+                    <p><strong>{{ match.user2 }}</strong> offers <strong>{{ match.user2_offers }}</strong> and wants <strong>{{ match.user2_wants }}</strong></p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No matches found. Try posting more offers!</p>
+        {% endif %}
+        <a href="{{ url_for('index') }}" class="btn-link">⬅️ Back to Home</a>
+    </div>
+</body>
+</html>

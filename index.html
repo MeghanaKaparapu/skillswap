@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SkillSwap</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Post Your Skill Swap Offer</h1>
+            <a href="{{ url_for('logout') }}" class="btn-link">Logout</a>
+        </div>
+
+        <form method="POST" action="/add" class="offer-form">
+            <input type="text" name="skill_offer" placeholder="Skill You Offer" required>
+            <input type="text" name="skill_want" placeholder="Skill You Want" required>
+            <button type="submit">Submit Offer</button>
+        </form>
+
+        <h2>Current Unmatched Offers:</h2>
+        <div class="offers-list">
+            {% if offers %}
+                {% for offer in offers %}
+                    <div class="offer">
+                        <h3>{{ offer.user }}</h3>
+                        <p>Offers: <strong>{{ offer.skill_offer }}</strong></p>
+                        <p>Wants: <strong>{{ offer.skill_want }}</strong></p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No unmatched offers. Post yours!</p>
+            {% endif %}
+        </div>
+
+        <h2>Matched Offers:</h2>
+        <div class="offers-list">
+            {% if matched_offers %}
+                {% for matched in matched_offers %}
+                    <div class="offer matched">
+                        <h3>{{ matched.user }}</h3>
+                        <p>Offered: <strong>{{ matched.skill_offer }}</strong></p>
+                        <p>Wanted: <strong>{{ matched.skill_want }}</strong></p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No matches found yet.</p>
+            {% endif %}
+        </div>
+
+        <div class="button-container">
+            <a href="{{ url_for('match') }}" class="btn-link">Find New Matches</a>
+        </div>
+    </div>
+</body>
+</html>

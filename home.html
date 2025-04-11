@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to SwapSphere</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Updated Heading and Centered Logo -->
+        <h1 class="site-title">SwapSphere</h1>
+        <div class="logo-wrapper">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="SkillSwap Logo" class="centered-logo">
+        </div>
+
+        <!-- Home content remains unchanged -->
+        <div class="home-content">
+            <h2>What is SkillSwap?</h2>
+            <p>SkillSwap is a platform where people can <strong>exchange skills</strong> with others!</p>
+            <p>For example: If you know <strong>Photography</strong> and want to learn <strong>Web Development</strong>, you can find someone to swap skills with!</p>
+
+            <h3>How It Works:</h3>
+            <ul>
+                <li>Post the skill you offer and the skill you want.</li>
+                <li>Find matches where both people can help each other.</li>
+                <li>Connect and grow your abilities!</li>
+            </ul>
+
+            <h3>Get Started:</h3>
+            <p>Login or SignUp, and post your first SkillSwap offer!</p>
+        </div>
+
+        <!-- Login button moved to bottom -->
+        <div class="login-bottom-wrapper">
+            <a href="{{ url_for('login') }}" class="btn-link">Login</a>
+        </div>
+
+    </div>
+</body>
+</html>

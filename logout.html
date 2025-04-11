@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logged Out - SkillSwap</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>You have been logged out.</h2>
+        <a href="{{ url_for('login') }}" class="btn-link">Login again</a>
+        <a href="{{ url_for('home') }}" class="btn-link">Back to Home</a>
+    </div>
+</body>
+</html>
